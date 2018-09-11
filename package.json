@@ -48,10 +48,10 @@
   "license": "MIT",
   "dependencies": {
     "@types/zen-observable": "^0.8.0",
-    "apollo-cache": "file:../apollo-cache",
+    "apollo-cache": "^1.1.16",
     "apollo-link": "^1.0.0",
     "apollo-link-dedup": "^1.0.0",
-    "apollo-utilities": "file:../apollo-utilities",
+    "apollo-utilities": "^1.0.20",
     "symbol-observable": "^1.0.2",
     "zen-observable": "^0.8.0"
   },
