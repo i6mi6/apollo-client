@@ -1,6 +1,0 @@
-.gitignore
-CHANGELOG.md
-design.md
-rollup.*.js
-tsconfig.json
-tslint.json
