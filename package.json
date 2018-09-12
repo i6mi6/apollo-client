@@ -2,7 +2,7 @@
   "name": "apollo-client",
   "version": "2.2.8",
   "description": "A simple yet functional GraphQL client.",
-  "main": "bundle.umd.js",
+  "main": "index.js",
   "module": "index.js",
   "jsnext:main": "index.js",
   "typings": "index.d.ts",
