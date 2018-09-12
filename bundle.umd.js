@@ -820,7 +820,7 @@ var QueryStore = (function () {
         }
     };
     QueryStore.prototype.markQueryResult = function (queryId, result, fetchMoreForQueryId) {
-        if (!this.store[queryId])
+        if (!this.store || !this.store[queryId])
             return;
         this.store[queryId].networkError = null;
         this.store[queryId].graphQLErrors =
@@ -835,7 +835,7 @@ var QueryStore = (function () {
         }
     };
     QueryStore.prototype.markQueryError = function (queryId, error, fetchMoreForQueryId) {
-        if (!this.store[queryId])
+        if (!this.store || !this.store[queryId])
             return;
         this.store[queryId].networkError = error;
         this.store[queryId].networkStatus = exports.NetworkStatus.error;
@@ -847,7 +847,7 @@ var QueryStore = (function () {
         }
     };
     QueryStore.prototype.markQueryResultClient = function (queryId, complete) {
-        if (!this.store[queryId])
+        if (!this.store || !this.store[queryId])
             return;
         this.store[queryId].networkError = null;
         this.store[queryId].previousVariables = null;
@@ -1031,7 +1031,7 @@ var QueryManager = (function () {
             });
         });
     };
-    QueryManager.prototype.fetchQuery = function (queryId, options, fetchType, 
+    QueryManager.prototype.fetchQuery = function (queryId, options, fetchType,
         // This allows us to track if this is a query spawned by a `fetchMore`
         // call for another query. We need this data to compute the `fetchMore`
         // network status for the query this is fetching for.
@@ -1628,7 +1628,7 @@ var QueryManager = (function () {
         var _this = this;
         var requestId = _a.requestId, queryId = _a.queryId, document = _a.document, options = _a.options, fetchMoreForQueryId = _a.fetchMoreForQueryId;
         var variables = options.variables, context = options.context, _b = options.errorPolicy, errorPolicy = _b === void 0 ? 'none' : _b, fetchPolicy = options.fetchPolicy;
-        var operation = this.buildOperationForLink(document, variables, __assign$3({}, context, { 
+        var operation = this.buildOperationForLink(document, variables, __assign$3({}, context, {
             // TODO: Should this be included for all entry points via
             // buildOperationForLink?
             forceFetch: !this.queryDeduplication }));
@@ -1767,7 +1767,7 @@ var QueryManager = (function () {
                 : document,
             variables: variables,
             operationName: apolloUtilities.getOperationName(document) || undefined,
-            context: __assign$3({}, extraContext, { cache: cache, 
+            context: __assign$3({}, extraContext, { cache: cache,
                 // getting an entry's cache key is useful for cacheResolvers & state-link
                 getCacheKey: function (obj) {
                     if (cache.config) {
