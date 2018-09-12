@@ -91,7 +91,7 @@ var QueryStore = (function () {
         // If we have a `fetchMoreForQueryId` then we need to update the network
         // status for that query. See the branch for query initialization for more
         // explanation about this process.
-        if (typeof fetchMoreForQueryId === 'string') {
+        if (typeof fetchMoreForQueryId === 'string' && this.store[fetchMoreForQueryId]) {
             this.store[fetchMoreForQueryId].networkStatus = NetworkStatus.ready;
         }
     };
