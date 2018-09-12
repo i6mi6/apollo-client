@@ -7,4 +7,3 @@ import ApolloClient from './ApolloClient';
 // export the client as both default and named
 export { ApolloClient };
 export default ApolloClient;
-//# sourceMappingURL=index.js.map
