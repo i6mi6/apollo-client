@@ -1,3 +1,8 @@
+Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
+  obj.__proto__ = proto
+  return obj
+}
+
 export { print as printAST } from 'graphql/language/printer';
 export { ObservableQuery, } from './core/ObservableQuery';
 export { NetworkStatus } from './core/networkStatus';
